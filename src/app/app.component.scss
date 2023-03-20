@@ -1,0 +1,165 @@
+.container {
+  width: 100rem;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+//WELCOME
+
+.welcomeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-size: 7rem;
+
+  &__upper {
+    animation: welcomeUp 1.5s;
+  }
+
+  &__lower {
+    animation: welcomeLow 1.5s;
+  }
+
+  &__continue {
+    font-size: 2rem;
+    opacity: 0;
+  }
+}
+
+//INPUT
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  align-items: center;
+  transition: 0.5s all;
+  animation: showInput 1s;
+
+  &__text {
+    font-size: 5rem;
+    color: #999;
+  }
+
+  &__input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    height: 5rem;
+    font-size: 5rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #000;
+  }
+
+  &__error {
+    font-size: 3rem;
+    color: rgb(106, 24, 24);
+  }
+}
+
+.countryCard {
+  height: 80%;
+  width: 35%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 0 4rem #00000076;
+  background-color: #ffffff;
+}
+
+.imgContainer {
+  width: 100%;
+  height: 20rem;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+}
+
+.countryInfo {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50%;
+}
+
+.statContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+
+  &__heading {
+    color: #999;
+    font-size: 1.5rem;
+  }
+
+  &__stat {
+    font-size: 2rem;
+  }
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  color: #999;
+  margin-top: 2rem;
+  .icon {
+    height: 3rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.inlineblock {
+  justify-content: center;
+  display: flex;
+  gap: 3px;
+}
+
+.show {
+  opacity: 1;
+  transition: 0.5s all;
+}
+
+@keyframes welcomeUp {
+  from {
+    transform: translateY(-200%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes welcomeLow {
+  from {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes showInput {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

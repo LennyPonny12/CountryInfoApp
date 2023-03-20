@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="welcomeContainer" *ngIf="welcomeTextBool">
+    <span class="welcomeContainer__upper">GET INFO ABOUT</span>
+    <span class="welcomeContainer__lower">EVERY COUNTRY</span>
+    <span class="welcomeContainer__continue" #welcomeText (click)="welcomDis()"
+      >Click here to continue</span
+    >
+  </div>
+  <div
+    class="inputContainer"
+    #inputContainer
+    *ngIf="!welcomeTextBool && !lastStage"
+  >
+    <label for="input" class="inputContainer__text">INPUT COUNTRY NAME</label>
+    <input
+      [(ngModel)]="countryName"
+      (keydown.enter)="searchForCountry()"
+      type="text"
+      id="input"
+      class="inputContainer__input"
+    />
+    <h1 class="inputContainer__error" *ngIf="error">
+      This country doesnt exists
+    </h1>
+  </div>
+  <div class="countryCard" *ngIf="lastStage">
+    <div class="imgContainer">
+      <img class="imgContainer__img" [src]="imgUrl" alt="flag" />
+    </div>
+    <div class="countryInfo">
+      <div class="statContainer">
+        <span class="statContainer__heading">Country name</span>
+        <span class="statContainer__stat">{{ countryName }}</span>
+      </div>
+      <div class="statContainer">
+        <span class="statContainer__heading">Country capital</span>
+        <span class="statContainer__stat">{{ capital }}</span>
+      </div>
+      <div class="statContainer">
+        <span class="statContainer__heading">Country population</span>
+        <span class="statContainer__stat">{{ population }}</span>
+      </div>
+      <div class="statContainer">
+        <span class="statContainer__heading">Country languages</span>
+        <div class="inlineblock">
+          <span class="statContainer__stat" *ngFor="let item of lang">{{
+            item
+          }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="iconContainer">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="icon"
+        (click)="resetApp()"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
